@@ -8,6 +8,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Hello! Welcome to AWS Elastic bean with AWS S3.
+          I have worked from a feature branch!
         </p>
         <a
           className="App-link"
