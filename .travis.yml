@@ -8,3 +8,25 @@ before_install:
 # scripts add here
 script:
   - docker run -e CI=true bijay4725sahoo/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  # Take the region from the application url generated e.g: "http://dockerreact-env.eba-pjm7sedx.us-east-2.elasticbeanstalk.com/"
+  region: "us-east-2"
+  # The name of the app created in elasticbeanstalk
+  app: "docker-react"
+  # The name of the environment created in elasticbeanstalk
+  env: "Dockerreact-env"
+  # When Travis decides to deploy your code base, it's going to take all of the files inside of your GitHub repository.
+  # That's going to zip them all up into one single file, and then it's going to copy all of them over
+  # to an S3 bucket, which is essentially a hard drive running on AWS
+  # Once it copies all those files over Traviss, then going to essentially poke at elasticbeanstalk
+  # use that to redeploy your application.
+  # How to get this? -> Search for S3, get the name of the particular S3 bucket created for this elasticbeanstalk app
+  bucket_name: "elasticbeanstalk-us-east-2-463767277365"
+  # It's the name of the app you have created
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
