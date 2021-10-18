@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          hi there! Finally resolved
+          hi there! Welcome to AWS Elastic bean.
         </p>
         <a
           className="App-link"
